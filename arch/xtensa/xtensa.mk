@@ -29,7 +29,7 @@ RTOS8266_GZ  = ESP8266_RTOS_SDK-v$(RTOS8266_VER).zip
 
 GZ += $(ESP)/ESP8266_RTOS_SDK/README.md
 $(ESP)/ESP8266_RTOS_SDK/README.md: $(DISTR)/ESP/$(RTOS8266_GZ)
-	unzip -d $(ESP) $<
+	unzip -d $(ESP) $< && touch $@
 $(DISTR)/ESP/$(RTOS8266_GZ):
 	$(CURL) $@ $(RTOS8266_URL)/v${RTOS8266_VER)/$(RTOS8266_GZ)
 
@@ -38,7 +38,7 @@ ESPTOOL_URL = https://github.com/espressif/esptool/releases/download
 
 GZ += $(ESP)/esptool/esptool.py
 $(ESP)/esptool/esptool.py: $(DISTR)/ESP/$(ESPTOOL_GZ)
-	unzip $< -d $(dir $@) && touch $@
+	unzip $< -d $(dir $@) && touch $@ ; chmod +x $@
 $(DISTR)/ESP/$(ESPTOOL_GZ):
 	$(CURL) $@ $(ESPTOOL_URL)/v$(ESPTOOL_VER)/$(ESPTOOL_GZ)
 
