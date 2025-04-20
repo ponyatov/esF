@@ -36,10 +36,9 @@ $(DISTR)/ESP/$(RTOS8266_GZ):
 ESPTOOL_GZ  = esptool-v$(ESPTOOL_VER)-linux-amd64.zip
 ESPTOOL_URL = https://github.com/espressif/esptool/releases/download
 
-# GZ += $(ESP)/esptool-linux-arm64/README.md
-# $(ESP)/esptool-linux-arm64/README.md: $(DISTR)/ESP/$(ESPTOOL_GZ)
-# 	unzip $< -d $(ESP) && touch $@
-GZ += $(DISTR)/ESP/$(ESPTOOL_GZ)
+GZ += $(ESPTOOL)
+$(ESPTOOL): $(DISTR)/ESP/$(ESPTOOL_GZ)
+	unzip -d $(ESP) $< && touch $@ ; chmod +x $@
 $(DISTR)/ESP/$(ESPTOOL_GZ):
 	$(CURL) $@ $(ESPTOOL_URL)/v$(ESPTOOL_VER)/$(ESPTOOL_GZ)
 

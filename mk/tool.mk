@@ -4,4 +4,4 @@ GITREF  = git clone -o gh --depth 1
 PEP     = autopep8 --ignore $(PEPS) -i
 PY      = $(ESP)/python/bin/python3
 PIP     = $(ESP)/python/bin/pip3
-ESPTOOL = $(ESP)/esptool/esptool.py --chip $(HW)
+ESPTOOL = $(ESP)/esptool-linux-amd64/esptool
