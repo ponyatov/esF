@@ -1,13 +1,15 @@
-TRIPLET   = xtensa-lx106-elf
+TARGET    = xtensa-lx106-elf
 OS       ?= rtos8266
 APT      += gcc-xtensa-lx106 qemu-system-misc
 QEMU      = qemu-system-xtensa
 QEMU_CFG += -machine esp8266 -nographic
 
 LX106_URL = https://dl.espressif.com/dl
-LX106_GZ  = $(TRIPLET)-gcc$(LX106_GCC)-esp-$(LX106_VER)-linux-amd64.tar.gz
+LX106_GZ  = $(TARGET)-gcc$(LX106_GCC)-esp-$(LX106_VER)-linux-amd64.tar.gz
 
-GZ += $(DISTR)/ESP/$(LX106_GZ)
+GZ += $(ESP)/$(TARGET)/bin/$(TARGET)-gcc
+$(ESP)/$(TARGET)/bin/$(TARGET)-gcc: $(DISTR)/ESP/$(LX106_GZ)
+	cd $(ESP) ; zcat $< | tar x && touch $@
 $(DISTR)/ESP/$(LX106_GZ):
 	$(CURL) $@ $(LX106_URL)/$(LX106_GZ)
 

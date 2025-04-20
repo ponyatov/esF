@@ -7,4 +7,4 @@ SRC    = $(CWD)/src
 TMP    = $(CWD)/tmp
 REF    = $(CWD)/ref
 DISTR ?= $(HOME)/distr
-CAR    = $(HOME)/.cargo
+ESP    = $(HOME)/esp
