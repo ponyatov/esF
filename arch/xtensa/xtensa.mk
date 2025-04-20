@@ -2,8 +2,8 @@ TARGET    = xtensa-lx106-elf
 OS       ?= rtos8266
 
 APT      += gcc-xtensa-lx106 qemu-system-misc
-APT      += python3-future python3-cryptography
-APT      += python3-pyparsing python3-pyelftools python3-pyparsing
+# APT += python3-future python3-cryptography
+# APT += python3-pyparsing python3-pyelftools python3-pyparsing
 
 QEMU      = qemu-system-xtensa
 QEMU_CFG += -machine esp8266 -nographic
@@ -33,14 +33,13 @@ $(ESP)/ESP8266_RTOS_SDK/README.md: $(DISTR)/ESP/$(RTOS8266_GZ)
 $(DISTR)/ESP/$(RTOS8266_GZ):
 	$(CURL) $@ $(RTOS8266_URL)/v${RTOS8266_VER)/$(RTOS8266_GZ)
 
-ESPTOOL_GZ = esptool-v$(ESPTOOL_VER)-linux-arm64.zip
-ESPTOOL_URL = https://github.com/espressif/esptool/releases/download
-
-GZ += $(ESP)/esptool/esptool.py
-$(ESP)/esptool/esptool.py: $(DISTR)/ESP/$(ESPTOOL_GZ)
-	unzip $< -d $(dir $@) && touch $@ ; chmod +x $@
-$(DISTR)/ESP/$(ESPTOOL_GZ):
-	$(CURL) $@ $(ESPTOOL_URL)/v$(ESPTOOL_VER)/$(ESPTOOL_GZ)
+# ESPTOOL_GZ = esptool-v$(ESPTOOL_VER)-linux-arm64.zip
+# ESPTOOL_URL = https://github.com/espressif/esptool/releases/download
+# GZ += $(ESP)/esptool-linux-arm64/README.md
+# $(ESP)/esptool-linux-arm64/README.md: $(DISTR)/ESP/$(ESPTOOL_GZ)
+# 	unzip $< -d $(ESP) && touch $@
+# $(DISTR)/ESP/$(ESPTOOL_GZ):
+# 	$(CURL) $@ $(ESPTOOL_URL)/v$(ESPTOOL_VER)/$(ESPTOOL_GZ)
 
 GZ += $(PIP)
 $(PIP):
