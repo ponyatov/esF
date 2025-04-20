@@ -51,6 +51,20 @@
     // "C_Cpp.intelliSenseEngine": "Tag Parser",
     // "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
 
+    // CMake
+    "cmake.sourceDirectory" : "${workspaceFolder}",
+    "cmake.buildDirectory"  : "${workspaceFolder}/tmp/${workspaceFolderBasename}",
+    "cmake.generator"       : "Unix Makefiles",
+    "cmake.parallelJobs"    :  4,
+    "cmake.useCMakePresets" : "always",
+    "cmake.ignoreCMakeListsMissing" : false,
+    "cmake.buildBeforeRun"  :  true,
+    "cmake.saveBeforeBuild" :  true,
+    // "cmake.debugConfig"     : {
+    //     "cwd" :   "${workspaceFolder}",
+    //     "args": [ "lib/${workspaceFolderBasename}.ini" ] },
+    // "cmake.allowCommentsInPresetsFile" : true,
+
     // Python
     "python.defaultInterpreterPath":  "python3",
     "autopep8.path"                : ["autopep8"],
