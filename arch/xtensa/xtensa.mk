@@ -48,12 +48,17 @@ $(PIP):
 	$@ install -U pip
 	$@ install -U -r $(IDF_PATH)/requirements.txt
 
+IDF_CFG  = EXTRA_COMPONENT_DIRS=$(CWD)/src PROJECT_NAME=$(MODULE)
+IDF_CFG += PROJECT_PATH=$(CWD) BUILD_DIR_BASE=$(TMP)/build
+
 .PHONY: menuconfig
 menuconfig:
-	$(MAKE) -f $(IDF_PATH)/make/project.mk \
-		EXTRA_COMPONENT_DIRS=$(CWD)/src PROJECT_NAME=$(MODULE) \
-		PROJECT_PATH=$(CWD) BUILD_DIR_BASE=$(TMP)/build \
-		$@
+	$(MAKE) -f $(IDF_PATH)/make/project.mk $(IDF_CFG) $@
 
+.PHONY: all
 all:
-	$(MAKE) -f $(IDF_PATH)/make/project.mk $@
+	$(MAKE) -f $(IDF_PATH)/make/project.mk $(IDF_CFG) $@
+
+.PHONY: list-components
+list-components:
+	$(MAKE) -f $(IDF_PATH)/make/project.mk $(IDF_CFG) $@
