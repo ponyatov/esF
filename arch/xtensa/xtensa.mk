@@ -4,9 +4,12 @@ APT      += gcc-xtensa-lx106 qemu-system-misc
 QEMU      = qemu-system-xtensa
 QEMU_CFG += -machine esp8266 -nographic
 
-TCC = $(ESP)/$(TARGET)/bin/$(TARGET)-gcc
-TXX = $(ESP)/$(TARGET)/bin/$(TARGET)-g++
-TLD = $(ESP)/$(TARGET)/bin/$(TARGET)-tld
+TCC      = $(ESP)/$(TARGET)/bin/$(TARGET)-gcc
+TXX      = $(ESP)/$(TARGET)/bin/$(TARGET)-g++
+TAS      = $(ESP)/$(TARGET)/bin/$(TARGET)-as
+TLD      = $(ESP)/$(TARGET)/bin/$(TARGET)-ld
+TSIZE    = $(ESP)/$(TARGET)/bin/$(TARGET)-size
+TOBJDUMP = $(ESP)/$(TARGET)/bin/$(TARGET)-objdump
 
 LX106_URL = https://dl.espressif.com/dl
 LX106_GZ  = $(TARGET)-gcc$(LX106_GCC)-esp-$(LX106_VER)-linux-amd64.tar.gz

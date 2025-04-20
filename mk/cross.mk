@@ -1,8 +1,8 @@
 # HW ?= pc
 HW ?= esp8266
 
-ELF = $(BIN)/$(BINFILE).elf
-DFU = $(BIN)/$(BINFILE).dfu
+ELF = bin/$(BINFILE).elf
+DFU = bin/$(BINFILE).dfu
 
 include   hw/$(HW)/$(HW).mk
 include  cpu/$(CPU)/$(CPU).mk

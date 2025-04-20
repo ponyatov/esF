@@ -1,2 +1,3 @@
-$(ELF): $(C) $(H)
+$(ELF): $(C) $(H) mk/rule.mk
 	$(TXX) -o $@ $(C)
+	$(TSIZE) $@
