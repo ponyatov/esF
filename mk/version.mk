@@ -1,3 +1,5 @@
+## xtensa
 LX106_GCC    = 8_4_0
 LX106_VER    = 2020r3
 RTOS8266_VER = 3.4
+ESPTOOL_VER  = 4.8.1
