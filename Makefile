@@ -7,5 +7,3 @@ include mk/cross.mk
 include mk/all.mk
 include mk/rule.mk
 include mk/install.mk
-include mk/esp.mk
-
