@@ -19,4 +19,4 @@ $(DFU): $(ELF)
 
 .PHONY: qemu
 qemu: $(ELF)
-	$(QEMU) $(QEMU_CFG) -S -kernel $<
+	$(QEMU) $(QEMU_CFG) -S -s -kernel $<
