@@ -50,7 +50,9 @@ $(PIP):
 
 .PHONY: menuconfig
 menuconfig:
-	$(MAKE) -f $(IDF_PATH)/make/project.mk PROJECT_NAME=$(MODULE) $@
+	$(MAKE) -f $(IDF_PATH)/make/project.mk \
+		EXTRA_COMPONENT_DIRS=src PROJECT_NAME=$(MODULE) \
+		$@
 
 all:
 	$(MAKE) -f $(IDF_PATH)/make/project.mk $@
