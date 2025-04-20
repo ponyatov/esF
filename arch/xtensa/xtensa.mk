@@ -48,8 +48,10 @@ $(PIP):
 	$@ install -U pip
 	$@ install -U -r $(IDF_PATH)/requirements.txt
 
-IDF_CFG  = EXTRA_COMPONENT_DIRS=$(CWD)/src PROJECT_NAME=$(MODULE)
+IDF_CFG  = PROJECT_NAME=$(MODULE)
+IDF_CFG += EXTRA_COMPONENT_DIRS="$(CWD)/lib $(CWD)/src"
 IDF_CFG += PROJECT_PATH=$(CWD) BUILD_DIR_BASE=$(TMP)/build
+IDF_CFG += EXCLUDE_COMPONENTS="lwip fatfs freemodbus esp_http_server wpa_supplicant"
 
 .PHONY: menuconfig
 menuconfig:
