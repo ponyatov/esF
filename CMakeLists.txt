@@ -4,6 +4,7 @@ project(${CMAKE_PROJECT_NAME} LANGUAGES C CXX ASM)
 
 include(version)
 include(src)
+include(syntax)
 
 message("-- |")
 message("-- | toolchain: " ${CMAKE_CXX_COMPILER} " @ " ${CMAKE_TOOLCHAIN_FILE})
@@ -27,3 +28,5 @@ set_target_properties(${CMAKE_PROJECT_NAME}
 install(TARGETS ${CMAKE_PROJECT_NAME}
     DESTINATION ${CMAKE_INSTALL_PREFIX})
 
+include(cross)
+include(clean)
