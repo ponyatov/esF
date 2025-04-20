@@ -1,5 +1,5 @@
 set(CMAKE_SYSTEM_NAME       Generic)
-set(CMAKE_SYSTEM_PROCESSOR  l106)
+set(CMAKE_SYSTEM_PROCESSOR  lx106)
 set(TOOLCHAIN_PREFIX        xtensa-lx106-elf)
 set(CMAKE_CROSS_COMPILING   true)
 set(CMAKE_EXECUTABLE_SUFFIX ".elf")
@@ -19,12 +19,12 @@ add_compile_options(
     $<$<COMPILE_LANGUAGE:ASM>:-MP>
 )
 
-# set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
-# add_link_options(
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+add_link_options(
 #     -mthumb
 #     -T ${CMAKE_SOURCE_DIR}/hw/${HW}/${CPU_}x_FLASH.ld
 #     --specs=nano.specs
-#     -Wl,--start-group -lc -lm -lnosys   -Wl,--end-group
-#     -Wl,--start-group -lstdc++ -lsupc++ -Wl,--end-group
-#     -Wl,-Map=${CMAKE_PROJECT_NAME}.map -Wl,--gc-sections
-# )
+    -Wl,--start-group -lc -lm -lnosys   -Wl,--end-group
+    -Wl,--start-group -lstdc++ -lsupc++ -Wl,--end-group
+    -Wl,-Map=${CMAKE_PROJECT_NAME}.map -Wl,--gc-sections
+)
