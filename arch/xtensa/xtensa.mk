@@ -47,3 +47,7 @@ $(PIP):
 	python3 -m venv $(ESP)/python
 	$@ install -U pip
 	$@ install -U -r $(IDF_PATH)/requirements.txt
+
+.PHONY: menuconfig
+menuconfig:
+	$(MAKE) -f $(IDF_PATH)/make/project.mk PROJECT_NAME=$(MODULE) $@
