@@ -33,13 +33,15 @@ $(ESP)/ESP8266_RTOS_SDK/README.md: $(DISTR)/ESP/$(RTOS8266_GZ)
 $(DISTR)/ESP/$(RTOS8266_GZ):
 	$(CURL) $@ $(RTOS8266_URL)/v${RTOS8266_VER)/$(RTOS8266_GZ)
 
-# ESPTOOL_GZ = esptool-v$(ESPTOOL_VER)-linux-arm64.zip
-# ESPTOOL_URL = https://github.com/espressif/esptool/releases/download
+ESPTOOL_GZ  = esptool-v$(ESPTOOL_VER)-linux-amd64.zip
+ESPTOOL_URL = https://github.com/espressif/esptool/releases/download
+
 # GZ += $(ESP)/esptool-linux-arm64/README.md
 # $(ESP)/esptool-linux-arm64/README.md: $(DISTR)/ESP/$(ESPTOOL_GZ)
 # 	unzip $< -d $(ESP) && touch $@
-# $(DISTR)/ESP/$(ESPTOOL_GZ):
-# 	$(CURL) $@ $(ESPTOOL_URL)/v$(ESPTOOL_VER)/$(ESPTOOL_GZ)
+GZ += $(DISTR)/ESP/$(ESPTOOL_GZ)
+$(DISTR)/ESP/$(ESPTOOL_GZ):
+	$(CURL) $@ $(ESPTOOL_URL)/v$(ESPTOOL_VER)/$(ESPTOOL_GZ)
 
 GZ += $(PIP)
 $(PIP):
